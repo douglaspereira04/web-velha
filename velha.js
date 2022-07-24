@@ -22,8 +22,22 @@ class Velha{
 		this._vencedor = null;
 	}
 
+	//faz jogada
+	//retorna se a jogada foi realizada ou por fim de partida ou por celula preenchida
+	jogar(linha, coluna){
+		if(this._vencedor == null && this._tabuleiro[linha][coluna] == 0){
+			this._tabuleiro[linha][coluna] = this._vez
+			this._vez = (this._vez%2)+1; //alternar entre 1 e 2
+			this._movimentos++; // incrementa rodada
+			this.verificar_fim();
+			return true;
+		}
+		return false;
+		
+	}
+
 	//define vencedor em this._vencedor
-	//se não há vencedor, null
+	//se não há vencedor e o tabuleiro está cheio, "Velha"
 	verificar_fim(){
 		var vencedor = 0;
 
@@ -58,34 +72,25 @@ class Velha{
 		}
 
 		//retorna vencedor
-		if(vencedor == 0){
-			this._vencedor = null;
+		if(this.tabuleiro_cheio() && vencedor == 0){
+			this._vencedor = "Velha";
 		}else if(vencedor == 1){
 			this._vencedor = this._jogador_x;
+			this.incrementar_placar(this._vencedor);
 		}else if(vencedor == 2){
 			this._vencedor = this._jogador_o;
+			this.incrementar_placar(this._vencedor);
 		}
 	}
 
-	//faz jogada
-	//retorna se a jogada foi realizada ou por fim de partida ou por celula preenchida
-	jogar(linha, coluna){
-		if(this._vencedor == null && this._tabuleiro[linha][coluna] == 0){
-			this._tabuleiro[linha][coluna] = this._vez
-			this._vez = (this._vez%2)+1; //alternar entre 1 e 2
-			this._movimentos++; // incrementa rodada
-			return true;
-		}
-		return false;
-		
+	//verifica se o tabuleiro ta chceio
+	tabuleiro_cheio(){
+		return this._movimentos == 9;
 	}
 
-	//retorna jogador atual
-	get vez(){
-		if(this._vez == 1){
-			return this._jogador_x;
-		}
-		return this._jogador_o;
+	//incrementa placar de determinado jogador
+	incrementar_placar(jogador){
+		this._placar[jogador]++;
 	}
 
 	//inverte quem é x e quem é o
@@ -96,9 +101,12 @@ class Velha{
 		this._jogador_o = temp;
 	}
 
-	//incrementa placar de determinado jogador
-	incrementar_placar(jogador){
-		this._placar[jogador]++;
+	//retorna jogador atual
+	get vez(){
+		if(this._vez == 1){
+			return this._jogador_x;
+		}
+		return this._jogador_o;
 	}
 
 	//pega jogador 1
@@ -176,11 +184,6 @@ class Velha{
 		}else if(this._tabuleiro[linha][coluna] == 2){
 			return 'o';
 		}
-	}
-
-	//verifica se o tabuleiro ta chceio
-	tabuleiro_cheio(){
-		return this._movimentos == 9;
 	}
 
 }

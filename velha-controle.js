@@ -43,7 +43,7 @@ class VelhaControle{
 	//inicia/reinicia a partida
 	iniciar(){
 		this._velha.iniciar();
-		this.apresentarNome();
+		this.atualizarNome();
 		this.apresentarTabuleiro();
 	}
 
@@ -51,25 +51,23 @@ class VelhaControle{
 	clicarCelula(i,j){
 		let jogou = this._velha.jogar(i,j);
 		if(jogou){
-			this._velha.verificar_fim();
-			this.apresentarNome();
+			this.atualizarNome();
 			this.apresentarTabuleiro();
 			let vencedor = this._velha.vencedor;
 			if(vencedor != null){
-				this._velha.incrementar_placar(vencedor);
-				this.apresentarPlacar();
+				this.atualzarPlacar();
 			}
 		}
 	}
 
-	//apresenta placar na interface grafica
-	apresentarPlacar(){
+	//atualiza placar na interface grafica
+	atualzarPlacar(){
 		pontos_1.innerHTML = this._velha.pontos_1;
 		pontos_2.innerHTML = this._velha.pontos_2;
 	}
 
-	//apresenta ou nome do jogador da vez, ou do vencedor ou velha
-	apresentarNome(){
+	//atualiza ou nome do jogador da vez, ou do vencedor ou velha
+	atualizarNome(){
 		
 		let fim = false;
 		let nome = null;
@@ -78,9 +76,6 @@ class VelhaControle{
 		if(vencedor != null){
 			fim = true;
 			nome = vencedor;
-		}else if(this._velha.tabuleiro_cheio()){
-			fim = true;
-			nome = "Velha";
 		}else{
 			nome = this._velha.jogador_atual;
 		}
@@ -105,7 +100,7 @@ class VelhaControle{
 		this._velha.jogador_1 = this._jogador_1.value;
 		this._velha.jogador_2 = this._jogador_2.value;
 
-		this.apresentarNome();
+		this.atualizarNome();
 	}
 
 	//apresenta o estado do tabuleiro na interface
