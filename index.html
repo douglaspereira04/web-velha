@@ -1,0 +1,46 @@
+<!--
+    Douglas Pereira Luiz
+    18203343
+-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="conteudo">
+        <div id=status>
+            <div id="placar">
+                <div class="pontos">
+                    <input id="jogador_1" class="nome" type="text" name="" value="Douglas">
+                    <p id="pontos_1" align="center">0</p>
+                </div>
+                <div class="pontos">
+                    <input id="jogador_2" class="nome" type="text" name="" value="Rafaela">
+                    <p id="pontos_2" align="center">0</p>
+                </div>
+            </div>
+            <p>
+                <span id="vez-de">Vez de: </span>
+                <span id="vencedor" class="escondido">Vencedor: </span>
+                <span id="vez-vencedor">Douglas</span>
+            </p>
+            <p>
+                <button id="jogar-novamente" class="escondido">Jogar novamente</button>
+            </p>
+        </div>
+        <div id="jogo">
+            <div id="tabuleiro">
+                <div class="tab-cel" id="cel-00"> </div><div class="tab-cel" id="cel-01"> </div><div class="tab-cel" id="cel-02"> </div>
+                <div class="tab-cel" id="cel-10"> </div><div class="tab-cel" id="cel-11"> </div><div class="tab-cel" id="cel-12"> </div>
+                <div class="tab-cel" id="cel-20"> </div><div class="tab-cel" id="cel-21"> </div><div class="tab-cel" id="cel-22"> </div>
+            </div>
+        </div>
+    </div>
+    <script src="velha.js"></script> 
+    <script src="velha-controller.js"></script> 
+</body>
+</html>
