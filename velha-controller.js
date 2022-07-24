@@ -14,6 +14,7 @@ var pontos_2 = document.getElementById('pontos_2');
 var velha = new Velha(jogador_1.value,jogador_2.value);
 
 
+//ação ao clicar na celula i j do tabuleiro
 function clicarCelula(i,j){
 	let jogou = velha.jogar(i,j);
 	if(jogou){
@@ -28,11 +29,13 @@ function clicarCelula(i,j){
 	}
 }
 
+//apresenta placar na interface grafica
 function apresentarPlacar(){
 	pontos_1.innerHTML = velha.pontos_1;
 	pontos_2.innerHTML = velha.pontos_2;
 }
 
+//apresenta ou nome do jogador da vez, ou do vencedor ou velha
 function apresentarNome(){
 	
 	let fim = false;
@@ -64,6 +67,7 @@ function apresentarNome(){
 	vezVencedorElemento.innerHTML = nome
 }
 
+//ação ao alterar nome de jogador
 function editarJogadores(){
 	velha.jogador_1 = jogador_1.value;
 	velha.jogador_2 = jogador_2.value;
@@ -71,7 +75,7 @@ function editarJogadores(){
 	apresentarNome();
 }
 
-
+//apresenta o estado do tabuleiro na interface
 function apresentarTabuleiro(){
 	for (var i = 0; i < 3; i++) {
 		for (let j = 0; j < 3; j++) {
@@ -80,24 +84,28 @@ function apresentarTabuleiro(){
 	}
 }
 
+//reinicia a partida
 function reiniciar(){
 	velha.iniciar();
 	apresentarNome();
 	apresentarTabuleiro();
 }
 
+
+//adiciona ação ao evento de clique no tabuleiro
 for (let i = 0; i < 3; i++) {
 	for (let j = 0; j < 3; j++) {
 		document.getElementById("cel-"+i+""+j).addEventListener("click",() => { clicarCelula(i,j) });
 	}
 }
 
-
+//adiciona alçao à alteração dos nomes
 for (let i = nomesElementos.length - 1; i >= 0; i--) {
 	nomesElementos[i].addEventListener('change', (event) => {
 		editarJogadores();
 	});
 }
 
+//adiciona ação ao botao de jogar novamente
 jogarNovamenteElemento.addEventListener('click', reiniciar);
 

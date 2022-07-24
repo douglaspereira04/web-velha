@@ -101,6 +101,7 @@ class Velha{
 		this._placar[jogador]++;
 	}
 
+	//pega jogador 1
 	get jogador_1(){
 		return this._jogador_1;
 	}
@@ -121,6 +122,7 @@ class Velha{
 		this._placar[novo_nome] = pontos; //adiciona novo nome no placar com os pontos antigos
 	}
 
+	//pega jogador 2
 	get jogador_2(){
 		return this._jogador_2;
 	}
@@ -149,19 +151,22 @@ class Velha{
 		return this._jogador_o;
 	}
 
+	//pega pontos do jogador 1
 	get pontos_1(){
 		return this._placar[this._jogador_1];
 	}
 
-
+	//pega pontos do jogador 2
 	get pontos_2(){
 		return this._placar[this._jogador_2];
 	}
 
+	//pega jogador vencedor
 	get vencedor(){
 		return this._vencedor;
 	}
 
+	//pega valor em posição do tabuleiro
 	posicao(linha, coluna){
 		//retorna vencedor
 		if(this._tabuleiro[linha][coluna] == 0){
@@ -173,6 +178,7 @@ class Velha{
 		}
 	}
 
+	//verifica se o tabuleiro ta chceio
 	tabuleiro_cheio(){
 		return this._movimentos == 9;
 	}
