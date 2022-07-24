@@ -92,7 +92,7 @@ class Velha{
 	//(para começo de nova partida)
 	inverter_jogadores(){
 		let temp = this._jogador_x;
-		this._jogador_x = jogador_o;
+		this._jogador_x = this._jogador_o;
 		this._jogador_o = temp;
 	}
 
