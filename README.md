@@ -25,7 +25,7 @@ As principais modificações na interface são:
 
 ## velha.js
 Define **Velha**, a classe de modelo do jogo da velha. Elementos importantes são:
-- atributos **\jogador_1**, **\jogador_2**, **\jogador_x**, **\jogador_o**. Os atributos **jogador_1/2**, definem que é o jogador "da esquerda ou da direita" na interface. Os atributos **jogador_x/o** definem quem é o "x" e quem é "o", portanto, também definem quem vai começar, porque no jogo da velha sempre se começa por "x". No fim de cada jogo, são invertidos jogadores "x" e "o", porém jogadores "1" e "2" não se altera;
+- atributos **\_jogador_1**, **\_jogador_2**, **\_jogador_x**, **\_jogador_o**. Os atributos **\_jogador_1/2**, definem que é o jogador "da esquerda ou da direita" na interface. Os atributos **\_jogador_x/o** definem quem é o "x" e quem é "o", portanto, também definem quem vai começar, porque no jogo da velha sempre se começa por "x". No fim de cada jogo, são invertidos jogadores "x" e "o", porém jogadores "1" e "2" não se altera;
 - atributo de **\_placar**. É um objeto, usado como uma tabela, que armazena o placar dos jogadores. O armazenamento se baseia nos valores de **\_jogador_1** e **\_jogador_2**;
 - atributo que armezena o tabuleiro, **\_tabuleiro** é um vetor bidimensional _3X3_. Uma posição quando 0 indica vazio, quando 1 indica "x" e quando 2 inidica "o" no tabuleiro;
 - atributo **\_movimentos** indica o número de movimentos já feitos na partida. Serve para saber se o tabuleiro está cheio;
